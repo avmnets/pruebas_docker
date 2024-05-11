@@ -1,0 +1,63 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="merma.list">
+      <field name="name">merma list</field>
+      <field name="model">merma.merma</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="primero"/>
+          <field name="segundo"/>
+          <field name="tercero"/>
+          <field name="pais"/>  
+          <field name="productos"/>   
+          <field name="vehiculos"/>   
+          <field name="empleado"/>    
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="merma.action_window">
+      <field name="name">merma</field>
+      <field name="res_model">merma.merma</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="merma.action_server">
+      <field name="name">merma server</field>
+      <field name="model_id" ref="model_merma_merma"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="merma" id="merma.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="merma.menu_1" parent="merma.menu_root"/>
+    
+
+    <!-- actions -->
+
+    <menuitem name="List" id="merma.menu_1_list" parent="merma.menu_1"
+              action="merma.action_window"/>
+   
+
+  </data>
+</odoo>
